@@ -1,23 +1,39 @@
 package main
 
-import "fmt"
-
-type Person struct {
-	Name string
-	Age  int
-}
+import (
+	"flag"
+	"fmt"
+	"gofun/internal/app"
+	"gofun/internal/routes"
+	"net/http"
+	"time"
+)
 
 func main() {
 	// Example usage
 
-	fmt.Println("Hello, world!")
+	var port int
+	flag.IntVar(&port, "port", 8080, "go backend server port")
+	flag.Parse()
 
-	p := Person{Name: "Bob", Age: 25}
-	fmt.Println("inside scope", p.Name)
-	p.modifyPersonName()
-	fmt.Println("outside scope", p.Name)
-}
+	app, err := app.NewApplication()
+	if err != nil {
+		panic(err)
+	}
 
-func (p *Person) modifyPersonName() {
-	p.Name = "John"
+	r := routes.SetupRoutes(app)
+	server := &http.Server{
+		Addr:         fmt.Sprintf(":%d", port),
+		Handler:      r,
+		IdleTimeout:  time.Minute,
+		ReadTimeout:  10 * time.Second,
+		WriteTimeout: 30 * time.Second,
+	}
+
+	app.Logger.Printf("we are running on port %d\n", port)
+
+	err = server.ListenAndServe()
+	if err != nil {
+		app.Logger.Fatal(err)
+	}
 }
