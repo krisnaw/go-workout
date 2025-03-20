@@ -3,7 +3,7 @@
 This application is a simple **Workout App** built in **Go** to showcase my skills in utilizing the Go programming language. It demonstrates routing, database management, and health check functionality with a modular structure.
 
 ### Features
-- RESTful API implementation.
+- REST API implementation.
 - Modular structure for scalability and maintainability.
 - Database integration and utility functions.
 - Health check endpoint for monitoring uptime.
@@ -14,7 +14,7 @@ This application is a simple **Workout App** built in **Go** to showcase my skil
 ## Technologies Used
 
 - **Language:** Go (Golang)
-- **Database:** PostgreSQL
+- **Database:** Postgres
 - **Additional Tools/Packages:** Go-Chi
 
 ---
@@ -38,7 +38,7 @@ This application is a simple **Workout App** built in **Go** to showcase my skil
 Make sure you have the following installed on your machine before running the application:
 
 1. **Go** (version 1.23 or later)
-2. (Add any other necessary installations, such as Docker/PostgreSQL if applicable.)
+2. (Add any other necessary installations, such as Docker/Postgres if applicable.)
 3. (Include details of third-party packages required by the app and how they can be installed.)
 
 ---
@@ -79,11 +79,11 @@ Make sure you have the following installed on your machine before running the ap
 
 ## API Endpoints
 
-| Method | Endpoint        | Description            |
-|--------|-----------------|------------------------|
-| GET    | /health         | Health check endpoint |
-| POST   | /workouts       | Create a workout      |
-| GET    | /workouts       | List all workouts     |
+| Method | Endpoint  | Description           |
+|--------|-----------|-----------------------|
+| GET    | /health   | Health check endpoint |
+| POST   | /workouts | Create a workout      |
+| GET    | /workouts | List all workouts     |
 
 (Add more as needed.)
 
