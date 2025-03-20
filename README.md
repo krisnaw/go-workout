@@ -14,8 +14,8 @@ This application is a simple **Workout App** built in **Go** to showcase my skil
 ## Technologies Used
 
 - **Language:** Go (Golang)
-- **Database:** Postgres
-- **Additional Tools/Packages:** Go-Chi
+- **Database:** Postgres, goose(for migrations)
+- **Additional Tools/Packages:** go-chi
 
 ---
 
